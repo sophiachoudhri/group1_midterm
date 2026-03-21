@@ -1,0 +1,7 @@
+---
+title: "DATA550 Midterm: Analysis of Covid Cases" ### Add code for parameter-dependent title here
+authors: Sophia Choudhri, Ava Crawford, Emma Dunne, Liam Hanson, Bailey Hebermehl, Licza Lobo
+date: "`r Sys.Date()`"
+output: html_document
+# Add code display options
+---
