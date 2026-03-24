@@ -1,0 +1,42 @@
+---
+author: "Sophia Choudhri"
+title: "report"
+output: html_document
+date: "2026-03-24"
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(gtsummary)
+library(config)
+```
+
+
+# Load Data
+
+```{r}
+here::i_am("subproject_sophia/report.Rmd")
+
+data <- read.csv(
+  file = here::here("subproject_sophia/output/clean_data.rds")
+)
+```
+
+
+# Regression Testing 
+
+```{r}
+regression <- readRDS(regression, 
+        file = here::here("subproject_sophia/output/fit_model.rds"))
+```
+
+
+# Table
+
+```{r}
+table <- readRDS(table, 
+        file = here::here ("subproject_sophia/output/table.rds" ))
+
+table
+```
+
