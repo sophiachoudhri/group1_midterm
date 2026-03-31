@@ -29,3 +29,14 @@ subproject_sophia/output/table.rds: subproject_sophia/code/fit_model.R \
 	Rscript subproject_sophia/code/table.R
 	
 
+### Licza output
+
+.PHONY: licza
+licza: subproject_licza/output/regression_table.rds
+
+subproject_licza/output/regression_table.rds: subproject_licza/code/01_log_reg.R
+	Rscript subproject_licza/code/01_log_reg.R $(SEX) $(MEDICAL_UNIT)
+	
+
+	
+

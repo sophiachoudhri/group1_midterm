@@ -1,0 +1,13 @@
+---
+title: "Midterm Project"
+author: Licza Lobo
+date: " `r format(Sys.Date(), '%b %e %Y')`"
+output: html_document
+---
+
+## Regression Analysis
+Below are the results of a multivariable logistic regression model used to evaluate factors associated with the likelihood of intubation among COVID-19 patients. Results are reported as odds ratios (ORs) with 95% confidence intervals and global p-values. The model adjusts for age, sex, asthma status, and pneumonia status.
+
+```{r, Logistic-Regression-Model, echo=FALSE, message=FALSE, warning=FALSE}
+readRDS(here::here("subproject_licza/output/regression_table.rds"))
+```
