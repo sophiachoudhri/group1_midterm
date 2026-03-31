@@ -6,19 +6,19 @@ output: html_document
 
 ```{r, here-i-am, include = FALSE}
 here::i_am(
-  "report.Rmd"
+  "subproject_ava/report.Rmd"
 )
 ```
 
 ```{r, load-data, include = FALSE}
 data <- readRDS(
-  here::here("output/recode.rds")
+  here::here("subproject_ava/output/recode.rds")
 )
 ```
 
 ```{r, load-table_one, include = FALSE}
 table_one <- readRDS(
- file = here::here("output/table_one.rds"))
+ file = here::here("subproject_ava/output/table_one.rds"))
 table_one %>%
   as_gt() %>%
   gt::tab_header(
