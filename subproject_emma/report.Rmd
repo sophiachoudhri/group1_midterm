@@ -1,0 +1,50 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+```{r, here-i-am-emma}
+here::i_am(
+  "subproject_emma/report.Rmd"
+)
+```
+
+# Logistic Regression Analysis
+
+## Regression Model
+
+To assess whether age increases the risk of intubation, we fit a logistic regression model with intubation as the response variable and age as the explanatory variable.
+
+```{r, model}
+intubation_age_results <- readRDS(
+  file = here::here("subproject_emma/output/intubation_age_results.rds")
+)
+```
+
+The fitted logistic regression model was
+$$
+\log\left(\frac{p}{1-p}\right) = -2.2862 + 0.0136(\text{Age}),
+$$
+where \(p\) represents the probability of intubation. The estimated slope for age is positive, indicating that older age is associated with higher odds of intubation.
+
+## Regression Table
+
+Below is the regression table for the logistic regression model.
+
+```{r, table}
+intubation_age_results$table
+```
+
+## Graphical Analysis
+
+Below is a bar chart showing the intubation rate by age group.
+
+```{r}
+knitr::include_graphics(
+  here::here("subproject_emma/output/intubation_rate_by_age_group.png")
+)
+```
+
