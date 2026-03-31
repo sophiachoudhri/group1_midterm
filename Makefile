@@ -37,8 +37,7 @@ licza: subproject_licza/output/regression_table.rds
 subproject_licza/output/regression_table.rds: subproject_licza/code/01_log_reg.R
 	Rscript subproject_licza/code/01_log_reg.R $(SEX) $(MEDICAL_UNIT)
 	
-<<<<<<< HEAD
-=======
+
 ### Emma
 
 .PHONY: emma
@@ -51,7 +50,6 @@ subproject_emma/output/intubation_age_results.rds: subproject_emma/code/01_model
 subproject_emma/output/intubation_rate_by_age_group.png: subproject_emma/code/02_make_barplot.R
 	Rscript subproject_emma/code/02_make_barplot.R $(SEX) $(MEDICAL_UNIT)
 	
->>>>>>> test-emma
 
 	
 
