@@ -1,4 +1,6 @@
 library(readr)
+library(gtsummary)
+library(dplyr)
 
 here::i_am("subproject_licza/code/01_log_reg.R")
 
