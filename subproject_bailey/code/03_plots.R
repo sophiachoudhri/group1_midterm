@@ -1,12 +1,18 @@
 here::i_am("subproject_bailey/code/03_plots.R")
 
-install.packages("ggplot2")
 library(ggplot2)
+library(dplyr)
+
+data <- readRDS(
+  file = "subproject_bailey/output/data.rds"
+)
+
+print(head(data$PNEUMONIA))
 
 #PNEUMONIA
 pneumonia_bar_chart <-
-  data |>
-  filter(!is.na(PNEUMONIA)) |>
+  data %>%
+  filter(!is.na(PNEUMONIA)) %>%
   ggplot(aes(x = PNEUMONIA, fill = PNEUMONIA)) +
   geom_bar() +
   scale_fill_manual(values = c("Yes" = "blue", "No" = "red")) +
@@ -15,7 +21,7 @@ pneumonia_bar_chart <-
     x = "Diagnosis of Pneumonia",
     y = "Count"
   )
-pneumonia_bar_chart
+
 
 saveRDS(
   pneumonia_bar_chart,
@@ -34,7 +40,7 @@ intubed_bar_chart <-
     x = "Intubation Status",
     y = "Count"
   )
-intubed_bar_chart
+
 
 saveRDS(
   intubed_bar_chart,
@@ -53,7 +59,6 @@ cardiovascular_bar_chart <-
     x = "Cardiovascular Disease",
     y = "Count"
   )
-cardiovascular_bar_chart
 
 saveRDS(
   cardiovascular_bar_chart,
@@ -72,7 +77,7 @@ obesity_bar_chart <-
     x = "Obesity Status",
     y = "Count"
   )
-obesity_bar_chart
+
 
 saveRDS(
   obesity_bar_chart,
@@ -91,7 +96,7 @@ patient_bar_chart <-
     x = "Patient Type",
     y = "Count"
   )
-patient_bar_chart
+
 
 saveRDS(
   patient_bar_chart,
@@ -108,7 +113,7 @@ age_histogram <-
     x = "Age",
     y = "Count"
   )
-age_histogram
+
 
 saveRDS(
   age_histogram,

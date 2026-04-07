@@ -10,6 +10,34 @@ MEDICAL_UNIT ?= all
 report:
 	Rscript render_combined_report.R $(SEX) $(MEDICAL_UNIT)
 	
+### Bailey Output
+
+.PHONY: bailey
+bailey: subproject_bailey/output/data.rds subproject_bailey/output/table1.rds \
+ subproject_bailey/output/pneumonia_bar_chart.rds \
+ subproject_bailey/output/intubed_bar_chart.rds \
+ subproject_bailey/output/cardiovascular_bar_chart.rds \
+ subproject_bailey/output/obesity_bar_chart.rds \
+ subproject_bailey/output/patient_bar_chart.rds \
+ subproject_bailey/output/age_histogram.rds
+ 
+subproject_bailey/output/data.rds: subproject_bailey/code/01_data.R
+	Rscript subproject_bailey/code/01_data.R $(SEX) $(MEDICAL_UNIT)
+	
+subproject_bailey/output/table1.rds: subproject_bailey/output/data.rds \
+ subproject_bailey/code/02_table_one.R
+	Rscript subproject_bailey/code/02_table_one.R
+
+BAILEY_FIGURES = subproject_bailey/output/pneumonia_bar_chart.rds \
+									subproject_bailey/output/intubed_bar_chart.rds \
+									subproject_bailey/output/cardiovascular_bar_chart.rds \
+									subproject_bailey/output/obesity_bar_chart.rds \
+									subproject_bailey/output/patient_bar_chart.rds \
+									subproject_bailey/output/age_histogram.rds
+									
+$(BAILEY_FIGURES): subproject_bailey/output/data.rds subproject_bailey/code/03_plots.R
+	Rscript subproject_bailey/code/03_plots.R
+										
 ### Sophia Output
 
 .PHONY: sophia

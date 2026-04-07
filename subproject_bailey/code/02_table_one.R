@@ -1,5 +1,9 @@
 here::i_am("subproject_bailey/code/02_table_one.R")
 
+data <- readRDS(
+  file = "subproject_bailey/output/data.rds"
+)
+
 library(gtsummary)
 library(dplyr)
 table1 <- data %>%
@@ -14,7 +18,7 @@ table1 <- data %>%
       CARDIOVASCULAR ~ "Cardiovascular Disease", 
       OBESITY ~ "Obesity"
     ))
-table1
+
 
 saveRDS(
   table1,
