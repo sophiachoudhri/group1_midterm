@@ -11,8 +11,9 @@ data <- data |>
     CARDIOVASCULAR = factor(CARDIOVASCULAR,
                             levels = c("No","Yes")),
     OBESITY = factor(OBESITY,
-                     levels = c("No", "Yes"))
-  )
+                     levels = c("No", "Yes")) 
+  ) |>
+  filter(MEDICAL_UNIT == cfg$unit)
 
 
 saveRDS(data, 
